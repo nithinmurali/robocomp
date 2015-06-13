@@ -28,6 +28,6 @@ now we are ready:
     git add mycomponents
     git push -u origin master
     
-You can go now to GitHub and chek that your sources are there!
+You can go now to GitHub and check that your sources are there!
     
   

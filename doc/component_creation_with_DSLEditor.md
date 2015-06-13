@@ -28,7 +28,7 @@ The new file will open inside a syntax-sensitive editor in the central panel. Ct
             language Cpp;
     };
 
-Repeat the same steps to include *Laser.idsl* and then add a *requires* statement inside de *Communications* section. The file now should look like this:
+Repeat the same steps to include *Laser.idsl* and then add a *requires* statement inside the *Communications* section. The file now should look like this:
 
     import "/robocomp/interfaces/IDSLs/DifferentialRobot.idsl";
     import "/robocomp/interfaces/IDSLs/Laser.idsl";
@@ -48,7 +48,7 @@ Save the file and click in the upper bar on the *RoboComp* tab. Select *Generate
     
 and there it is! your component is running. 
 
-What! Dissapointed? Yeah, I know it does nothing, but it runs and it is yours! Now let's do some real programming.
+What! Disappointed? Yeah, I know it does nothing, but it runs and it is yours! Now let's do some real programming.
 
 Stop the component with Ctrl Z and then type:
 
@@ -123,4 +123,4 @@ Now you should see 2 windows. Now in Yakuake go back to tab where you had compil
 
 	bin/myfirstcomp --Ice.Config=etc/generic_config
 
-You should see the robot maneouvring aroung the box. Now is when Robotics begin! Try to modify the code to let the robot go pass the blocking boxes.
+You should see the robot maneuvering around the box. Now is when Robotics begin! Try to modify the code to let the robot go pass the blocking boxes.
