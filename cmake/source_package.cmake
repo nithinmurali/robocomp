@@ -27,16 +27,16 @@ set(DEBIAN_SOURCE_ORIG_DIR "${CMAKE_CURRENT_BINARY_DIR}/Debian/${CPACK_DEBIAN_PA
 MESSAGE(STATUS "Debian package source-orig-dir: " ${DEBIAN_SOURCE_ORIG_DIR})
 
 # copy of source
-if( CPACK_DEBIAN_PACKAGE_SOURCE_COPY )
-  execute_process(COMMAND ${CPACK_DEBIAN_PACKAGE_SOURCE_COPY} "${CMAKE_SOURCE_DIR}" "${DEBIAN_SOURCE_ORIG_DIR}")
-else( CPACK_DEBIAN_PACKAGE_SOURCE_COPY )
-  MESSAGE(STATUS "Copying files from ${DEB_SRC_DIR} to ${DEBIAN_SOURCE_ORIG_DIR}")
-  file(COPY "${DEB_SRC_DIR}/" DESTINATION "${DEBIAN_SOURCE_ORIG_DIR}" REGEX build|debian|components EXCLUDE)
-  MESSAGE(STATUS "Removing .git from source-orig-dir. ")
-  execute_process(COMMAND ${CMAKE_COMMAND} -E remove_directory "${DEBIAN_SOURCE_ORIG_DIR}/.git")
- #MESSAGE(STATUS "Removing non-essential components from source-orig-dir ")
-  #file(REMOVE_RECURSE "${DEBIAN_SOURCE_ORIG_DIR}/components" REGEX robocomp-robolab EXCLUDE)
-endif( CPACK_DEBIAN_PACKAGE_SOURCE_COPY )
+ if( CPACK_DEBIAN_PACKAGE_SOURCE_COPY )
+   execute_process(COMMAND ${CPACK_DEBIAN_PACKAGE_SOURCE_COPY} "${CMAKE_SOURCE_DIR}" "${DEBIAN_SOURCE_ORIG_DIR}")
+ else( CPACK_DEBIAN_PACKAGE_SOURCE_COPY )
+   MESSAGE(STATUS "Copying files from ${DEB_SRC_DIR} to ${DEBIAN_SOURCE_ORIG_DIR}")
+   file(COPY "${DEB_SRC_DIR}/" DESTINATION "${DEBIAN_SOURCE_ORIG_DIR}" REGEX "(build|debian|components)$" EXCLUDE)
+ endif( CPACK_DEBIAN_PACKAGE_SOURCE_COPY )
+   MESSAGE(STATUS "Removing .git from source-orig-dir. ")
+   execute_process(COMMAND ${CMAKE_COMMAND} -E remove_directory "${DEBIAN_SOURCE_ORIG_DIR}/.git")
+   #MESSAGE(STATUS "Removing non-essential components from source-orig-dir ")
+   #file(REMOVE_RECURSE "${DEBIAN_SOURCE_ORIG_DIR}/components" REGEX robocomp-robolab EXCLUDE)
 
 # create the original source tar
  MESSAGE(STATUS " creating source tar " )
