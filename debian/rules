@@ -6,7 +6,7 @@ export ROBOCOMP=$(shell pwd)
 # secondly called by launchpad
 build:	
 	mkdir $(BUILDDIR);
-	cd $(BUILDDIR); cmake -DCMAKE_BUILD_TYPE=Release  ..
+	cd $(BUILDDIR); cmake -DCMAKE_BUILD_TYPE=Release -DFCL_SUPPORT:BOOL=OFF ..
 	make -C $(BUILDDIR)
 
 # thirdly called by launchpad

@@ -1,8 +1,9 @@
 #Introduction to debian packaging
 
-
 All debain packages should follow certain conventions. The root source directory should contain a directory named *debian*. This directory contains files which stores info about the package.
 These are the required files under the debian directory
+
+###Files required in debian directory
 
 * __rules__  
 This is the maintainer script for the package building. This script is run by the packaging application to build and install the source into a *tmp* directory in the debian folder. It has the following Targets
@@ -35,12 +36,3 @@ This file contains information about the copyright and license of the upstream s
 
 * __(pre/post)(inst/rm)__  
 This are the scipts which are run before or after installation or removal of package.
-
-Now once you have the source directory in the prescribed format. you will need a *.tar.gz* archive of the source in the same folder.Then we can create a debian binary package using 
-    
-    debuild -i -us -uc -b
-
-Or a debian source package using
-
-    debuild -i -us -uc -S
-
